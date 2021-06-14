@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.error{
+	color: red;
+	font-size: 12px;
+}
+.pramsbody{
+    margin-left: 28%;
+    margin-top: 10%;
+    box-shadow: -4px 3px 93px black;
+    width: fit-content;
+}
+.pramDataDiv{
+    padding: 50px 50px;
+
+    /* margin-left: 28%;
+    margin-top: 15%;
+    box-shadow: -4px 3px 93px black;
+    width: fit-content; */
+}
+th,td{
+    padding: 8px;
+}
+.viewButton{
+	background: #085747;
+    color: blanchedalmond;
+    cursor: pointer;
+}
+.viewButton:hover{
+	background: #126151;
+}

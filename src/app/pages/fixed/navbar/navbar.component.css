@@ -1,0 +1,49 @@
+.header {
+    float: left;
+    height: -3rem;
+    width: 100vw;
+    padding-left: 14px;
+	background: #418174;
+    margin: 0px;
+}
+i{
+    color: rgb(7, 27, 24);
+    font-family:'Cedarville Cursive', cursive;
+    font-size: 37px;
+}
+.headerName {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    float: left;
+    padding-left: 60px;
+    font-size: 50px;
+}
+.btn{
+    color: white;
+}
+
+.logoImage {
+    width: 9rem;
+    float: left;
+    height: 9rem;
+}
+
+.navbar ul {
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    float: left;
+    padding: 9px;
+	background: #3db199;
+    box-shadow: 0px 1px 12px 3px #52e6c8;
+    margin-right: 88px;
+    margin-top: 25px;
+    color: white;
+}
+.logOut{
+color: red;
+}

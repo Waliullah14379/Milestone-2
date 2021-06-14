@@ -1,0 +1,114 @@
+<div class="row " *ngIf="navbar">
+    <div class="header navbar">
+        <h2 class="headerName">Welcome <i>Mr. {{fullName | titlecase}}</i> </h2>
+        <ul>
+            <li routerLink="/home" routerLinkActive="activebutton">Home</li>
+            <li><div class="dropdown">
+                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                    Prams/QueryPrams
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" routerLink="/query-pram-management" routerLinkActive="activebutton">Queryprams management</a>
+                  <a class="dropdown-item" routerLink="/pram-management" routerLinkActive="activebutton">Prams management</a>
+                </div>
+              </div></li>
+            <li href="#myprofile" class="trigger-btn" data-toggle="modal" >Profile</li>
+            <li class="logOut"(click)="logOutmodal()">Logout</li>
+        </ul>
+    </div>
+    <div id="logOutmodal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>Are you sure you want to Sine Out</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btn-lg " data-dismiss="modal" routerLink="/home" routerLinkActive="activebutton">cancle</button>
+                    <button type="button" class="btn btn-danger btn-lg "(click)="onLogOut()">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- profile modal starts from here -->
+
+    <div id="myprofile" class="modal fade text-center">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"> My profile</h2>	
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+<table>
+    <tr>
+        <td><b>Name :</b></td>
+        <td>{{fullName | titlecase}} </td>
+    </tr>
+    <tr>
+        <td><b>Email :</b></td>
+        <td>{{email}} </td>
+    </tr>
+    <tr>
+        <td><b>Mobile No. :</b></td>
+        <td>{{mobileNumber }} </td>
+    </tr>
+    <tr>
+        <td><b>Password :</b></td>
+        <td>{{password | custopPip}} </td>
+    </tr>
+</table>                
+</div>
+<hr>
+<button class="btn btn-info btn-lg btn-block login-btn" href="#editProfile"  data-toggle="modal" data-dismiss="modal" aria-hidden="true">Edit profile</button>
+   
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- edit prifile modal starts from here -->
+    <div id="editProfile" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit profile</h4>	
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="editProfileForm">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <span class="fa fa-user"></span>
+                                    </span>                    
+                                </div>
+                                <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                            </div>
+                            <div class="error " *ngIf="editProfileForm.get( 'firstName').hasError( 'required') && editProfileForm.get( 'firstName').touched ">*User name is required</div>
+                            <div class="error " *ngIf="editProfileForm.get( 'firstName').hasError( 'pattern') ">Enter alphabet only</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <span class="fa fa-user"></span>
+                                    </span>                    
+                                </div>
+                                <input type="text" class="form-control"  placeholder="LastName" formControlName="lastName">
+                            </div>
+                            <div class="error " *ngIf="editProfileForm.get( 'lastName').hasError( 'required') && editProfileForm.get( 'lastName').touched ">*User name is required</div>
+                            <div class="error " *ngIf="editProfileForm.get( 'lastName').hasError( 'pattern') ">Enter alphabet only</div>
+                        </div>
+                 
+                        <div class="form-group">
+                            <button [disabled]="editProfileForm.invalid" (click)="editProfile()" class="btn btn-primary btn-lg btn-block login-btn" data-dismiss="modal" routerLink="/navbar" routerLinkActive="activebutton">Submit</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
